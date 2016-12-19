@@ -1,0 +1,66 @@
+﻿@model ISI.Models.Estadistica
+
+@{
+    ViewBag.Title = "Create";
+    int[] months = Enumerable.Range(1, 12).ToArray();    
+}
+
+<h2>Crear</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Estadística</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <div class="form-group">
+            @Html.Label("Selecciona Usuario", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownList("Name", (SelectList)ViewBag.Users, " ")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">               
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("Selecciona el mes", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Month", months.Select(x => new SelectListItem{ Text = x.ToString(),Value = x.ToString(),}))
+                @*@Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })*@
+                @*@Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.TotalSpent, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TotalSpent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TotalSpent, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Listado Estadística", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

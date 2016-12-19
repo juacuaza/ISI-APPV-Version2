@@ -1,0 +1,48 @@
+﻿@model ISI.Models.Alquiler
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar</h2>
+
+<h3>Estas seguro que quieres borrarlo?</h3>
+<div>
+    <h4>Alquiler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PickUpate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickUpate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfReturn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfReturn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Listado Alquiler", "Index")
+        </div>
+    }
+</div>

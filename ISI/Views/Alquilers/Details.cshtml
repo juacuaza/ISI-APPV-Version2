@@ -1,0 +1,42 @@
+﻿@model ISI.Models.Alquiler
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Alquiler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PickUpate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickUpate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfReturn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfReturn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.AlquilerID }) |
+    @Html.ActionLink("Listado Alquileres", "Index")
+</p>

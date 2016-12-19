@@ -1,0 +1,40 @@
+﻿@model ISI.Models.Estadistica
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar</h2>
+
+<h3>AEstas seguro que quieres borrarla?</h3>
+<div>
+    <h4>Estadística</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalSpent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalSpent)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Listado Estadística", "Index")
+        </div>
+    }
+</div>
